@@ -5,7 +5,11 @@ function dxdt = wsmodel_ode(t, x, k)
 
 %% rename variables
 
+x
+
 x = var_vect_to_struct(x);
+
+dxdt = var_vect_to_struct(zeros(length(fieldnames(x))))
 
 
 %% initialize the rates of change for each variable with 0

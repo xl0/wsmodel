@@ -1,4 +1,4 @@
-function [ struct ] = var_vect_to_struct( vect )
+function [ x ] = var_vect_to_struct( vect )
 
 x.si = vect(1);   % internal food,
 x.a = vect(2);    % energy

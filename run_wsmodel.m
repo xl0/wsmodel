@@ -32,7 +32,9 @@ k.vm = 5800;    % max enzymatic rate, /min;
 k.Km = 1000;    % enzymatic threshold, molecules/cell.
 
 k.wr = 930;     % max ribosome transcription rate, molecules/min.
-k.we = k.wt = k.wm = 4.14; % max enzyme transcription rate, molecules/min.
+k.we = 4.14; 
+k.wt = 4.14;
+k.wm = 4.14; % max enzyme transcription rate, molecules/min.
 
 k.wq = 948.93;  % max q protein transcription rate, molecules/min.
 k.Tetta_r = 426.87; % ribosomal transcription threshold, molecules/cell.
@@ -75,21 +77,11 @@ x.c_q = 0;  % ribosome-bound q mRNA
 
 
 
+x0      = var_struct_to_vect(x); % definition of the initial vector of variables
 
-
-
-
-
-%% set initial values
-a0      = 1;
-b0      = 1;
-c0      = 0;
-d0      = 0;
-
-x0      = [a0, b0, c0, d0]; % definition of the initial vector of variables
 
 %% simulate
-[t,result] = ode15s(@(t,result) toymodel_ode(t,result,k),[0,tfinal],x0,options);
+[t,result] = ode15s(@(t,result) wsmodel_ode(t,result,k),[0,tfinal],x0,options);
 
 %% rename variables
 a = result(:,1);    % a = first column of result
