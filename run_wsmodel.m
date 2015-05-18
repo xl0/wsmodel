@@ -47,7 +47,7 @@ k.hq = 4;       % q protein autoinhibition Hill coefficient.
 k.kb = 1;       % mRNA-ribosime binding rate, /(min * molecs)
 k.ku = 1;       % mRNA-ribosome unbinding rate, /min.
 
-M = 10e8;       % Total cell mass, aa.
+k.M = 10e8;       % Total cell mass, aa.
 k.k_cm = 0.00599; % chloramphinicol binding rate, /(min * uM)
 
 
@@ -77,7 +77,7 @@ x.c_q = 0;  % ribosome-bound q mRNA
 
 
 
-x0      = var_struct_to_vect(x); % definition of the initial vector of variables
+x0 = var_struct_to_vect(x); % definition of the initial vector of variables
 
 
 %% simulate
